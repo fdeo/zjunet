@@ -29,6 +29,7 @@ LAC_NAME=zju-l2tp-${USERNAME}
 PPP_LOG_FILE=/tmp/zju-l2tp-log-${USERNAME}
 PPP_OPT_FILE=/etc/ppp/peers/${LAC_NAME}
 
+mkdir -p /etc/ppp/peers/
 mkdir -p /var/log/zjunet/
 LOG_FILE=/var/log/zjunet/${USERNAME}
 
@@ -114,14 +115,14 @@ EOF
 
 xl2tpd_connect() {
     echo "[INFO] try connecting $1"
-    pkill xl2tpd-control > /dev/null
+    kill $(ps | grep xl2tpd-control | grep -v grep | awk '{print $1}') 2>/dev/null
     xl2tpd-control connect-lac $1 &
     echo "[INFO] xl2tpd-control done"
 }
 
 xl2tpd_disconnect() {
     echo "[INFO] try disconnecting $1"
-    pkill xl2tpd-control > /dev/null
+    kill $(ps | grep xl2tpd-control | grep -v grep | awk '{print $1}') 2>/dev/null
     xl2tpd-control disconnect-lac $1 &
     echo "[INFO] xl2tpd-control done"
 }
