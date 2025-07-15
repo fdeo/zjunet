@@ -5,7 +5,7 @@ PKG_VERSION:=0.3.3
 PKG_RELEASE:=6
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=https://github.com/QSCTech/zjunet.git
+PKG_SOURCE_URL:=https://github.com/fdeo/zjunet.git
 PKG_SOURCE_VERSION:=HEAD
 
 PKG_MAINTAINER:=Azuk 443 <me@azuk.top>
